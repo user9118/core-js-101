@@ -7,7 +7,7 @@
 
 
 /**
- * Returns the result of concatenation of two strings.
+ * Возвращает результат объединения двух строк.
  *
  * @param {string} value1
  * @param {string} value2
@@ -18,13 +18,13 @@
  *   'aa',''    => 'aa'
  *   '',  'bb'  => 'bb'
  */
-function concatenateStrings(/* value1, value2 */) {
-  throw new Error('Not implemented');
+function concatenateStrings(value1, value2) {
+  return value1 + value2;
 }
 
 
 /**
- * Returns the length of given string.
+ * Возвращает длину заданной строки.
  *
  * @param {string} value
  * @return {number}
@@ -34,12 +34,12 @@ function concatenateStrings(/* value1, value2 */) {
  *   'b'     => 1
  *   ''      => 0
  */
-function getStringLength(/* value */) {
-  throw new Error('Not implemented');
+function getStringLength(value) {
+  return value.length;
 }
 
 /**
- * Returns the result of string template and given parameters firstName and lastName.
+ * Возвращает результат шаблона строки и заданных параметров имени и фамилии.
  * Please do not use concatenation, use template string :
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/template_strings
  *
@@ -51,8 +51,8 @@ function getStringLength(/* value */) {
  *   'John','Doe'      => 'Hello, John Doe!'
  *   'Chuck','Norris'  => 'Hello, Chuck Norris!'
  */
-function getStringFromTemplate(/* firstName, lastName */) {
-  throw new Error('Not implemented');
+function getStringFromTemplate(firstName, lastName) {
+  return `Hello, ${firstName} ${lastName}!`;
 }
 
 /**
@@ -65,13 +65,14 @@ function getStringFromTemplate(/* firstName, lastName */) {
  *   'Hello, John Doe!' => 'John Doe'
  *   'Hello, Chuck Norris!' => 'Chuck Norris'
  */
-function extractNameFromTemplate(/* value */) {
-  throw new Error('Not implemented');
+function extractNameFromTemplate(value) {
+  let result = value.replace('Hello, ', '');
+  result = result.replace('!', '');
+  return result;
 }
 
-
 /**
- * Returns a first char of the given string.
+ * Возвращает первый символ данной строки.
  *
  * @param {string} value
  * @return {string}
@@ -80,12 +81,12 @@ function extractNameFromTemplate(/* value */) {
  *   'John Doe'  => 'J'
  *   'cat'       => 'c'
  */
-function getFirstChar(/* value */) {
-  throw new Error('Not implemented');
+function getFirstChar(value) {
+  return value[0];
 }
 
 /**
- * Removes a leading and trailing whitespace characters from string.
+ * Удаляет ведущие и следственные пробелы символов из строки.
  *
  * @param {string} value
  * @return {string}
@@ -95,8 +96,8 @@ function getFirstChar(/* value */) {
  *   'cat'              => 'cat'
  *   '\tHello, World! ' => 'Hello, World!'
  */
-function removeLeadingAndTrailingWhitespaces(/* value */) {
-  throw new Error('Not implemented');
+function removeLeadingAndTrailingWhitespaces(value) {
+  return value.replace(/^\s+|\s+$/g, '');
 }
 
 /**
@@ -110,12 +111,12 @@ function removeLeadingAndTrailingWhitespaces(/* value */) {
  *   'A', 5  => 'AAAAA'
  *   'cat', 3 => 'catcatcat'
  */
-function repeatString(/* value, count */) {
-  throw new Error('Not implemented');
+function repeatString(value, count) {
+  return value.repeat(count);
 }
 
 /**
- * Remove the first occurrence of string inside another string
+ * Удалить первое вхождение строки внутри другой строки
  *
  * @param {string} str
  * @param {string} value
@@ -126,12 +127,12 @@ function repeatString(/* value, count */) {
  *   'I like legends', 'end' => 'I like legs',
  *   'ABABAB','BA' => 'ABAB'
  */
-function removeFirstOccurrences(/* str, value */) {
-  throw new Error('Not implemented');
+function removeFirstOccurrences(str, value) {
+  return str.replace(value, '');
 }
 
 /**
- * Remove the first and last angle brackets from tag string
+ * Снимите первые и последние угловые кронштейны из строки тега
  *
  * @param {string} str
  * @return {string}
@@ -141,13 +142,16 @@ function removeFirstOccurrences(/* str, value */) {
  *   '<span>' => 'span'
  *   '<a>' => 'a'
  */
-function unbracketTag(/* str */) {
-  throw new Error('Not implemented');
+function unbracketTag(str) {
+  const openTag = str.indexOf('<');
+  const closeTag = str.lastIndexOf('>');
+  const result = str.slice(openTag + 1, closeTag);
+  return result;
 }
 
 
 /**
- * Converts all characters of the specified string into the upper case
+ * Преобразует все символы указанной строки в верхний регистр
  *
  * @param {string} str
  * @return {string}
@@ -156,12 +160,13 @@ function unbracketTag(/* str */) {
  *   'Thunderstruck' => 'THUNDERSTRUCK'
  *  'abcdefghijklmnopqrstuvwxyz' => 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
  */
-function convertToUpperCase(/* str */) {
-  throw new Error('Not implemented');
+function convertToUpperCase(str) {
+  return str.toUpperCase();
 }
 
 /**
- * Extracts e-mails from single string with e-mails list delimeted by semicolons
+ * Извлекает электронные письма из одной строки с списком электронных писем,
+ * разграниченных полуколонами
  *
  * @param {string} str
  * @return {array}
@@ -175,13 +180,14 @@ function convertToUpperCase(/* str */) {
  *   ],
  *   'info@gmail.com' => ['info@gmail.com']
  */
-function extractEmails(/* str */) {
-  throw new Error('Not implemented');
+function extractEmails(str) {
+  return str.split(';');
 }
 
+
 /**
- * Returns the string representation of rectangle with specified width and height
- * using pseudograhic chars
+ * Возвращает строковое представление прямоугольника с указанной шириной и высотой,
+ * используя псевдограгические очаги
  *
  * @param {number} width
  * @param {number} height
@@ -202,13 +208,47 @@ function extractEmails(/* str */) {
  *             '└──────────┘\n'
  *
  */
-function getRectangleString(/* width, height */) {
-  throw new Error('Not implemented');
+function getRectangleString(width, height) {
+  let str = '';
+  for (let i = 0; i < height; i += 1) {
+    if (i === 0) {
+      for (let j = 0; j < width; j += 1) {
+        if (j === 0) {
+          str += '┌';
+        } else if (j === width - 1) {
+          str += '┐\n';
+        } else {
+          str += '─';
+        }
+      }
+    } else if (i === height - 1) {
+      for (let j = 0; j < width; j += 1) {
+        if (j === 0) {
+          str += '└';
+        } else if (j === width - 1) {
+          str += '┘\n';
+        } else {
+          str += '─';
+        }
+      }
+    } else {
+      for (let j = 0; j < width; j += 1) {
+        if (j === 0) {
+          str += '│';
+        } else if (j === width - 1) {
+          str += '│\n';
+        } else {
+          str += ' ';
+        }
+      }
+    }
+  }
+  return str;
 }
 
 
 /**
- * Encode specified string with ROT13 cipher
+ * Кодировать указанную строку с шифром ROT13
  * See details:  https://en.wikipedia.org/wiki/ROT13
  *
  * @param {string} str
@@ -224,11 +264,11 @@ function getRectangleString(/* width, height */) {
  *
  */
 function encodeToRot13(/* str */) {
-  throw new Error('Not implemented');
+
 }
 
 /**
- * Returns true if the value is string; otherwise false.
+ * Возвращает true, если значение является строкой; в противном случае ложь.
  * @param {string} value
  * @return {boolean}
  *
@@ -239,16 +279,23 @@ function encodeToRot13(/* str */) {
  *   isString({}) => false
  *   isString('test') => true
  *   isString(new String('test')) => true
+ * value === 'string'
  */
-function isString(/* value */) {
-  throw new Error('Not implemented');
+function isString(value) {
+  let x = true;
+  if (typeof value === 'string' || value instanceof String) {
+    x = true;
+  } else {
+    x = false;
+  }
+  return x;
 }
 
 
 /**
- * Returns playid card id.
+ * Возвращает идентификатор карты Playid.
  *
- * Playing cards inittial deck inclides the cards in the following order:
+ * Игрательные карты Начальная колода включает в себя карты в следующем заказе:
  *
  *  'A♣','2♣','3♣','4♣','5♣','6♣','7♣','8♣','9♣','10♣','J♣','Q♣','K♣',
  *  'A♦','2♦','3♦','4♦','5♦','6♦','7♦','8♦','9♦','10♦','J♦','Q♦','K♦',
@@ -269,8 +316,31 @@ function isString(/* value */) {
  *   'Q♠' => 50
  *   'K♠' => 51
  */
-function getCardId(/* value */) {
-  throw new Error('Not implemented');
+function getCardId(value) {
+  const mast = value[value.length - 1];
+  let id = value.slice(0, -1);
+  let x = 0;
+  if (mast === '♣') {
+    x = 0;
+  } else if (mast === '♦') {
+    x = 13;
+  } else if (mast === '♥') {
+    x = 13 * 2;
+  } else if (mast === '♠') {
+    x = 13 * 3;
+  }
+  if (id === 'A') {
+    id = 0;
+  } else if (id === 'J') {
+    id = 10;
+  } else if (id === 'Q') {
+    id = 11;
+  } else if (id === 'K') {
+    id = 12;
+  } else {
+    id = Number(id) - 1;
+  }
+  return (id + x);
 }
 
 
