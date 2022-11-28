@@ -9,7 +9,7 @@
 
 
 /**
- * Returns an area of a rectangle given by width and height.
+ * Возвращает область прямоугольника, заданного шириной и высотой.
  *
  * @param {number} width
  * @param {number} height
@@ -19,8 +19,8 @@
  *   5, 10 => 50
  *   5, 5  => 25
  */
-function getRectangleArea(/* width, height */) {
-  throw new Error('Not implemented');
+function getRectangleArea(width, height) {
+  return width * height;
 }
 
 
@@ -35,12 +35,12 @@ function getRectangleArea(/* width, height */) {
  *   3.14 => 19.729201864543903
  *   0    => 0
  */
-function getCircleCircumference(/* radius */) {
-  throw new Error('Not implemented');
+function getCircleCircumference(radius) {
+  return 2 * Math.PI * radius;
 }
 
 /**
- * Returns an average of two given numbers.
+ * Возвращает в среднем два данных числа.
  *
  * @param {number} value1
  * @param {number} value2
@@ -51,12 +51,12 @@ function getCircleCircumference(/* radius */) {
  *  10, 0  => 5
  *  -3, 3  => 0
  */
-function getAverage(/* value1, value2 */) {
-  throw new Error('Not implemented');
+function getAverage(value1, value2) {
+  return value1 / 2 + value2 / 2;
 }
 
 /**
- * Returns a distance between two points by cartesian coordinates.
+ * Возвращает расстояние между двумя точками с помощью картезианских координат.
  *
  * @param {number} x1
  * @param {number} y1
@@ -70,12 +70,16 @@ function getAverage(/* value1, value2 */) {
  *   (0,0) (1,0)    => 1
  *   (-5,0) (10,-10) => 18.027756377319946
  */
-function getDistanceBetweenPoints(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getDistanceBetweenPoints(x1, y1, x2, y2) {
+  const katet1 = x1 - x2;
+  const katet2 = y1 - y2;
+  let long = katet1 * katet1 + katet2 * katet2;
+  long = Math.sqrt(long);
+  return long;
 }
 
 /**
- * Returns a root of linear equation a*x + b = 0 given by coefficients a and b.
+ * Возвращает корень линейного уравнения a*x + b = 0, заданный коэффициентами a и b.
  *
  * @param {number} a
  * @param {number} b
@@ -86,13 +90,14 @@ function getDistanceBetweenPoints(/* x1, y1, x2, y2 */) {
  *   x + 8 = 0       => -8
  *   5*x = 0         => 0
  */
-function getLinearEquationRoot(/* a, b */) {
-  throw new Error('Not implemented');
+function getLinearEquationRoot(a, b) {
+  const x = -b / a;
+  return x;
 }
 
 
 /**
- * Returns an angle (in radians) between two vectors given by xi and yi,
+ * Возвращает угол (в радианах) между двумя векторами, данными XI и YI,
  * coordinates in Cartesian plane.
  * See details https://en.wikipedia.org/wiki/Euclidean_vector#Representations
  *
@@ -114,7 +119,7 @@ function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
 }
 
 /**
- * Returns a last digit of a integer number.
+ * Возвращает последнюю цифру целочисленного номера.
  *
  * @param {number} value
  * @return {number}
@@ -125,13 +130,13 @@ function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
  *     5     => 5
  *     0     => 0
  */
-function getLastDigit(/* value */) {
-  throw new Error('Not implemented');
+function getLastDigit(value) {
+  return value % 10;
 }
 
 
 /**
- * Returns a number by given string representation.
+ * Возвращает число с помощью данного строкового представления.
  *
  * @param {string} value
  * @return {number}
@@ -141,12 +146,12 @@ function getLastDigit(/* value */) {
  *     '37'     => 37
  * '-525.5'     => -525.5
  */
-function parseNumberFromString(/* value */) {
-  throw new Error('Not implemented');
+function parseNumberFromString(value) {
+  return Number(value);
 }
 
 /**
- * Returns a diagonal length of the rectangular parallelepiped given by its sides a,b,c.
+ * Возвращает диагональную длину прямоугольной параллелепипленки, данной по бокам a, b, c.
  *
  * @param {number} a
  * @param {number} b
@@ -158,13 +163,15 @@ function parseNumberFromString(/* value */) {
  *   3,3,3   => 5.196152422706632
  *   1,2,3   => 3.741657386773941
  */
-function getParallelepipedDiagonal(/* a, b, c */) {
-  throw new Error('Not implemented');
+function getParallelepipedDiagonal(a, b, c) {
+  let diagonal = a ** 2 + b ** 2 + c ** 2;
+  diagonal = Math.sqrt(diagonal);
+  return diagonal;
 }
 
 
 /**
- * Returns the number rounded to specified power of 10.
+ * Возвращает число округленного до указанной мощности 10.
  *
  * @param {number} num
  * @param {number} pow
@@ -180,8 +187,8 @@ function getParallelepipedDiagonal(/* a, b, c */) {
  *   1678, 2  => 1700
  *   1678, 3  => 2000
  */
-function roundToPowerOfTen(/* num, pow */) {
-  throw new Error('Not implemented');
+function roundToPowerOfTen(num, pow) {
+  return Math.round(num / (10 ** pow)) * (10 ** pow);
 }
 
 /**
@@ -206,8 +213,8 @@ function isPrime(/* n */) {
 }
 
 /**
- * Tries to convert value to number and returns it if conversion was successful;
- * otherwise returns default value passed as a second argument.
+ * Пытается преобразовать значение в число и возвращает его, если преобразование было успешным;
+ * В противном случае возвращает значение по умолчанию, передаваемое как второй аргумент.
  *
  * @param {any} value
  * @param {any} def
@@ -220,8 +227,23 @@ function isPrime(/* n */) {
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
-function toNumber(/* value, def */) {
-  throw new Error('Not implemented');
+function toNumber(value, def) {
+  let result;
+  if (typeof value === 'number' || value instanceof Number) {
+    if (Number.isNaN(value)) {
+      result = def;
+    } else {
+      result = Number(value);
+    }
+  } else if (typeof value === 'string') {
+    result = Number(value);
+    if (Number.isNaN(result)) {
+      result = def;
+    }
+  } else {
+    result = def;
+  }
+  return result;
 }
 
 module.exports = {

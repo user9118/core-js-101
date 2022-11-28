@@ -8,7 +8,7 @@
 
 
 /**
- * Parses a rfc2822 string date representation into date value
+ * Подготовки rfc2822 строковой дату представления в значение даты
  * For rfc2822 date specification refer to : http://tools.ietf.org/html/rfc2822#page-14
  *
  * @param {string} value

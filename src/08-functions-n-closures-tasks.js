@@ -10,9 +10,9 @@
 
 
 /**
- * Returns the functions composition of two specified functions f(x) and g(x).
- * The result of compose is to be a function of one argument, (lets call the argument x),
- * which works like applying function f to the result of applying function g to x, i.e.
+ * Возвращает состав функций двух указанных функций F (x) и G (x).
+ * Результатом сочинения является функция одного аргумента (давайте назовут аргумент x),
+ * который работает как применение функции f к результату применения функции g to x, i.e.
  *  getComposition(f,g)(x) = f(g(x))
  *
  * @param {Function} f
@@ -29,7 +29,7 @@ function getComposition(/* f, g */) {
 
 
 /**
- * Returns the math power function with the specified exponent
+ * Возвращает функцию математической мощности с указанным показателем
  *
  * @param {number} exponent
  * @return {Function}
@@ -50,7 +50,7 @@ function getPowerFunction(/* exponent */) {
 
 
 /**
- * Returns the polynom function of one argument based on specified coefficients.
+ * Возвращает полиномиальную функцию одного аргумента на основе указанных коэффициентов.
  * See: https://en.wikipedia.org/wiki/Polynomial#Definition
  *
  * @params {integer}

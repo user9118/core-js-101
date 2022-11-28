@@ -10,9 +10,9 @@
 /**
  * Returns the 'Fizz','Buzz' or an original number using the following rules:
  * 1) return original number
- * 2) but if number multiples of three return 'Fizz'
- * 3) for the multiples of five return 'Buzz'
- * 4) for numbers which are multiples of both three and five return 'FizzBuzz'
+ * 2) Но если числовые кратные из трех возврата 'Fizz'
+ * 3) Для кратных пяти возвратов 'Buzz'
+ * 4) Для чисел, которые являются кратными как трех, так и пяти возвратов 'Fizz Buzz'
  *
  * @param {number} num
  * @return {any}
